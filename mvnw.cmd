@@ -33,6 +33,8 @@
 @REM MAVEN_SKIP_RC - flag to disable loading of mavenrc files
 @REM ----------------------------------------------------------------------------
 
+set JAVA_HOME="D:\JDK\openjdk-11+28_windows-x64_bin\jdk-11"
+
 @REM Begin all REM lines with '@' in case MAVEN_BATCH_ECHO is 'on'
 @echo off
 @REM set title of command window
@@ -56,7 +58,6 @@ set ERROR_CODE=0
 
 @REM To isolate internal variables from possible post scripts, we use another setlocal
 @setlocal
-set JAVA_HOME="D:\JDK\openjdk-11+28_windows-x64_bin\jdk-11"
 
 @REM ==== START VALIDATION ====
 if not "%JAVA_HOME%" == "" goto OkJHome
