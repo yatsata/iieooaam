@@ -1,6 +1,7 @@
 package gw.iieooaam;
 
-import org.eclipse.microprofile.config.inject.ConfigProperty;
+import com.github.javafaker.Faker;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -29,4 +30,15 @@ public class ResourceProcessorEndpointController {
         // just to be sure they are correct print the credentials
         return "{ \n \"the answer iz\": \"maybe\", \n \"credentials\": \"" + password + username+"\" \n}";
     }
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/sum-em")
+    public String sumTwoThings(@QueryParam("first") String first, @QueryParam("second") String second){
+        if(StringUtils.isEmpty(first) || StringUtils.isEmpty(second)) {
+            Faker faker = new Faker();
+            return faker.chuckNorris().fact();
+        }
+        return first.toString() + second.toString();
+    }
+
 }
