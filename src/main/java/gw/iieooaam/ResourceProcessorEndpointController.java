@@ -51,7 +51,7 @@ public class ResourceProcessorEndpointController {
             least.add(o);
         }
         boolean odd;
-        if(least.contains(num)){
+        if(least.contains(num)==true){
             odd = true;
         } else {
             odd=false;
