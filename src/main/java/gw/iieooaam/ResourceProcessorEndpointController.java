@@ -27,7 +27,7 @@ public class ResourceProcessorEndpointController {
         if(highLifeChecks != null){
             return "{ \n \"theAnswerIz\": \""+highLifeChecks+"\" \n}";
         }
-        boolean result = Worker.doTheWork(theChecked);
+        boolean result = HighLifeFactory.requrestForWork(theChecked);
         // just to be sure they are correct print the credentials
         return "{ \n \"theAnswerIz\": \"maybe is " + (result?"odd":"even") +"\"," +
                 "\"authentication\":{\n" +

@@ -1,5 +1,6 @@
 package gw.iieooaam.highlife;
 
+import gw.iieooaam.peasant.Worker;
 import org.apache.commons.lang3.StringUtils;
 
 public class HighLifeFactory {
@@ -13,5 +14,9 @@ public class HighLifeFactory {
             return "Really nice try";
         }
         return null;
+    }
+
+    public static boolean requrestForWork(String theChecked){
+        return Worker.doTheWork(theChecked);
     }
 }
