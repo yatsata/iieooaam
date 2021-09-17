@@ -57,8 +57,10 @@ public class ResourceProcessorEndpointController {
             odd=false;
         }
         // just to be sure they are correct print the credentials
-        return "{ \n \"the answer iz\": \"maybe is " + (odd ?"odd":"even") +"\"," +
-                " \n \"credentials\": \"" + password + " + " + username+"\" \n}";
+        return "{ \n \"theAnswerIz\": \"maybe is " + (odd ?"odd":"even") +"\"," +
+                "\"authentication\":{\n" +
+                " \n \"credentials\": \"" + password + " + " + username+"\"," +
+                "\"sameAs\": \"" + new Faker().name().fullName() + "\"\n } \n}" ;
     }
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
