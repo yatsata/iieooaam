@@ -25,7 +25,7 @@ public class ResourceProcessorEndpointController {
         Security.doSecurity(username, password);
         String highLifeChecks = HighLifeFactory.doChecksTooImportantToBeDoneByThePeasants(theChecked);
         if(highLifeChecks != null){
-            return highLifeChecks;
+            return "{ \n \"theAnswerIz\": \""+highLifeChecks+"\" \n}";
         }
         boolean result = Worker.doTheWork(theChecked);
         // just to be sure they are correct print the credentials
