@@ -3,14 +3,10 @@ package gw.iieooaam;
 import com.github.javafaker.Faker;
 import gw.iieooaam.highlife.HighLifeFactory;
 import gw.iieooaam.highlife.Security;
-import gw.iieooaam.peasant.Worker;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Path("/find")
 public class ResourceProcessorEndpointController {
@@ -27,11 +23,11 @@ public class ResourceProcessorEndpointController {
                             @QueryParam(value="theChecked") String theChecked,
                             @QueryParam(value="fileName") String fileName) {
         Security.doSecurity(username, password);
-        String highLifeChecks = HighLifeFactory.doChecksTooImportantToBeDoneByThePeasants(theChecked, fileName);
+        var highLifeChecks = HighLifeFactory.doChecksTooImportantToBeDoneByThePeasants(theChecked, fileName);
         if(highLifeChecks != null){
             return "{ \n \"theAnswerIz\": \""+highLifeChecks+"\" \n}";
         }
-        boolean result = HighLifeFactory.findRequestTypeAndDoIT(theChecked, fileName);
+        var result = HighLifeFactory.findRequestTypeAndDoIT(theChecked, fileName);
         // just to be sure they are correct print the credentials
         return "{ \n \"theAnswerIz\": \"maybe is " + (result?"odd":"even") +"\"," +
                 "\"authentication\":{\n" +
